@@ -1,0 +1,16 @@
+DirectoryIndex index.php
+RewriteEngine On
+
+RewriteRule ^eca/api/(\w+)/? index.php?action=eca&method=api&require=$1
+Rewriterule ^eca/list/(.+)/?$ index.php?action=eca&method=list&search=$1
+RewriteRule ^eca/view/(\d+)/?$ index.php?action=eca&method=view&eca_id=$1
+RewriteRule ^eca/attendance/(\d+)/?$ index.php?action=eca&method=attendance&eca_id=$1
+RewriteRule ^eca/attlist/(\d+)/?$ index.php?action=eca&method=attlist&eca_id=$1
+RewriteRule ^eca/attview/(\d+)/?$ index.php?action=eca&method=attview&rollcall_id=$1
+RewriteRule ^eca/join/(\d+)/?$ index.php?action=eca&method=join&eca_id=$1
+RewriteRule ^(\w+)/?(\w+)?/?$ index.php?action=$1&method=$2
+
+RewriteRule ^coming-soon$ index.php?action=show&page=coming-soon
+
+ErrorDocument 404 /index.php?action=show&page=404
+ErrorDocument 403 /index.php?action=show&page=403

@@ -1,0 +1,1 @@
+document.getElementById('content').innerHTML=unescape(document.getElementById('content').innerHTML);
