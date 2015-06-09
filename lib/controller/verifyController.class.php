@@ -11,7 +11,6 @@ class verifyController extends Controller
 		$this->model=new callingModel();
         $this->view = new callingView();
     }
-
     public function start()
     {
 		$this->cookielogin();
