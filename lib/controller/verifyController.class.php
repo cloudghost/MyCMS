@@ -23,7 +23,7 @@ class verifyController extends Controller
 			case 1:
 			$m='<p class="am-text-center">你已经点名了！</p>';
 			break;
-			case 0:
+			case -1:
 			$m='<p class="am-text-center">你是不是没有登录啊？返回主页登录再来点名吧！</p>';
 			break;
 			case false:

@@ -22,22 +22,21 @@
 		public function verify(){
 			parent::getDatabase();
 			database::connect();
-			if(!empty($_COOKIE['sid'])){
-				$sid=substr($_COOKIE['sid'],1,4);
+			if(!empty($_SESSION['user']['sidRaw'])){
+				$sid=database::sanitize($_SESSION['user']['sidRaw']);
 			}else{
-				return false;
+				return -1;
 			}
-			$sid = database::sanitize($sid);
 			$arr=$this->get();
 			extract($arr);
-			if($this->checkcall($id)){
+			if($this->checkcall($id,$sid)){
 				$r=$this->addroll($id,$sid);
 				if($r==-1){
 					return 1;
-				}else if($r){
+				}else if($r==2){
 					return 2;
 				}else{
-					return 0;
+					return -1;
 				}
 			}else{
 				return false;
@@ -68,7 +67,11 @@
 			if($sid!=0){
 				$sql="INSERT INTO `rollrecord` VALUES('{$id}','{$sid}')";
 				$result = database::query($sql);
-				return $result;
+				if($result){
+					return 2;
+				}else{
+					return false;
+				}
 			}
 		}
 		public function generateQR($url,$width=400){
@@ -98,13 +101,20 @@
 			$result = database::query($sql);
 			return $id;
 		}
-		public function checkcall($rollid){
+		public function checkcall($rollid,$sid){
 			parent::getDatabase();
 			database::connect();
-			$sql = "SELECT `rollcall_id` FROM `callrecord` WHERE `rollcall_id`= $rollid ";
+			$sql = "SELECT * FROM `callrecord` WHERE `rollcall_id`= $rollid ";
 			$arr=database::queryAndArray($sql);
 			if(in_array($rollid,$arr[0])){
-				return true;
+				$sql="SELECT count(*) FROM `eca_members` WHERE `eca_id`='{$arr[0][2]}' AND `user_sid`='{$sid}'";
+				$result=database::queryAndOne($sql);
+				if($result[0]==1){
+					return true;
+				}
+				else{
+					return false;
+				}
 			}
 			return false;
 		}
