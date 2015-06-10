@@ -20,7 +20,9 @@ class timetableController extends Controller
     {
         $this->checkLoginAndRedirect();
         $this->timetableArr = $this->model->getTimetable();
-        $this->view->assembleTimetableArr($this->timetableArr);
+        //$this->view->assembleTimetableArr($this->timetableArr);
+        //var_dump($this->timetableArr);
+        cache::addCache('timetable',$this->timetableArr['INFO_DICT']);
         $this->view->showPage();
     }
 }

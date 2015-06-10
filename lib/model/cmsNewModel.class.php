@@ -29,4 +29,16 @@ class cmsNewModel extends Model
         $result = $this->postRequest("http://www.alevel.com.cn/user/interface/checkuserlogin/", ["username" => $sid, "passwd" => $password, "validate_code" => $this->apiKey]);
         return $result;
     }
+    public function getInfo($sid, $info_kind, $info_id=null){
+        $this->getDatabase();
+        $sid=database::sanitize($sid);
+        $sql="SELECT user_userid FROM users WHERE user_sid=$sid";
+        $userid=database::queryAndOne($sql)[0];
+        if(!isset($info_id)){
+            return $this->postRequest("http://www.alevel.com.cn/user/interface/getUserInfoByID/",['validate_code'=> $this->apiKey,'userid'=>$userid,'info_kind'=>$info_kind]);
+        }else{
+            return $this->postRequest("http://www.alevel.com.cn/user/interface/getUserInfoByID/",['validate_code'=> $this->apiKey,'userid'=>$userid,'info_kind'=>$info_kind,'info_id'=>$info_id]);
+        }
+        
+    }
 }

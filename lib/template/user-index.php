@@ -24,74 +24,86 @@ get_sidebar("cms"); ?>
                     </tr>
                     </thead>
                     <tbody>
+                        <?php $timeperiod=array(
+                            '','8:00-8:40','8:40-9:20','9:30-10:10','10:10-10:50','11:10-11:50','11:50-12:30','13:30-14:10','14:10-14:50','15:00-15:40','15:40-16:20','16:30-17:30'
+                        );?>
+                        <?php $timetable=cache::getCache('timetable');?>
+                        <?php for($i=1;$i<=10;++$i){?>
+                            <tr>
+                                <td><?=$timeperiod[$i];?></td>
+                                <td><?= isset($timetable[date('l')]['P'.$i])?$timetable[date('l')]['P'.$i]:'&nbsp'; ?></td>
+                                <td><?= isset($timetable[date('l',time()+24*3600)]['P'.$i])?$timetable[date('l',time()+24*3600)]['P'.$i]:'&nbsp'; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
                     <!--这里显示今天和明天的课程表-->
-                    <tr>
+                    <!-- <tr>
                         <td>8:00-8:40</td>
                         <td>  <?php get_course_name(0, 1); ?>  </td>
                         <td>  <?php get_course_name(1, 1); ?>  </td>
                     </tr>
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+                    <!-- <tr>
                         <td>8:40-9:20</td>
                         <td>  <?php get_course_name(0, 2); ?>  </td>
                         <td>  <?php get_course_name(1, 2); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+                   <!--  <tr>
                         <td>9:30-10:10</td>
                         <td>  <?php get_course_name(0, 3); ?>  </td>
                         <td>  <?php get_course_name(1, 3); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+                   <!--  <tr>
                         <td>10:10-10:50</td>
                         <td>  <?php get_course_name(0, 4); ?>  </td>
                         <td>  <?php get_course_name(1, 4); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+                    <!-- <tr>
                         <td>11:10-11:50</td>
                         <td>  <?php get_course_name(0, 5); ?>  </td>
                         <td>  <?php get_course_name(1, 5); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+                <!--     <tr>
                         <td>11:50-12:30</td>
                         <td>  <?php get_course_name(0, 6); ?>  </td>
                         <td>  <?php get_course_name(1, 6); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+<!--                     <tr>
                         <td>13:30-14:10</td>
                         <td>  <?php get_course_name(0, 7); ?>  </td>
                         <td>  <?php get_course_name(1, 7); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+                <!--     <tr>
                         <td>14:10-14:50</td>
                         <td>  <?php get_course_name(0, 8); ?>  </td>
                         <td>  <?php get_course_name(1, 8); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+ <!--                    <tr>
                         <td>15:00-15:40</td>
                         <td>  <?php get_course_name(0, 9); ?>  </td>
                         <td>  <?php get_course_name(1, 9); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+          <!--           <tr>
                         <td>15:40-16:20</td>
                         <td>  <?php get_course_name(0, 10); ?> </td>
                         <td>  <?php get_course_name(1, 10); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    <tr>
+               <!--      <tr>
                         <td>16:30-17:30</td>
                         <td>  <?php get_course_name(0, 11); ?> </td>
                         <td>  <?php get_course_name(1, 11); ?>  </td>
-                    </tr>
+                    </tr> -->
                     <!--时间固定，将课程输入。没有课则留空-->
-                    </tbody>
+                   <!--  </tbody> -->
                 </table>
             </div>
         </div>

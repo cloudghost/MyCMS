@@ -47,7 +47,7 @@ class indexView extends View
         }
     }
 
-    public function assembleTimetable($today, $tomorrow, $data)
+    /*public function assembleTimetable($today, $tomorrow, $data)
     {
         $arr = $data["courses"];
         foreach ($arr as $value) {
@@ -63,7 +63,7 @@ class indexView extends View
                               3 => string 'W4' (length=2)
                               4 => string '' (length=0)     <----- We need to get rid of this
              */
-            $timeArr = array_slice($timeArr, 0, count($timeArr) - 1);
+        /*    $timeArr = array_slice($timeArr, 0, count($timeArr) - 1);
 
             //Generates the availableDays array
             foreach ($timeArr as $timeValue) {
@@ -88,7 +88,7 @@ class indexView extends View
              * Wednesday 3
              * ...
              * Fri 5
-             */
+             *//*
             foreach ($textDayToNumDay as $text => $num) {
                 if (in_array($text, $temp)) {
                     $availableDays[count($availableDays)] = $num;
@@ -115,5 +115,5 @@ class indexView extends View
                 }
             }
         }
-    }
+    }*/
 }

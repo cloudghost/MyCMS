@@ -160,12 +160,15 @@ function get_course_name_manual($day, $lesson)
     }
 }
 
-function get_course_count()
+function get_course_count($course_arr)
 {
-    global $controller;
-    if (!empty($controller->view->courseNumber)) {
-        echo $controller->view->courseNumber;
+    $count=0;
+    foreach($course_arr as $day){
+        foreach($day as $course){
+            $count++;
+        } 
     }
+    return $count;
 }
 
 function get_course_name_by_day()
