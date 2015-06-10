@@ -37,7 +37,8 @@ class cmsNewModel extends Model
         if(!isset($info_arr)){
             return $this->postRequest("http://www.alevel.com.cn/user/interface/getUserInfoByID/",['validate_code'=> $this->apiKey,'userid'=>$userid,'info_kind'=>$info_kind]);
         }else{
-            return $this->postRequest("http://www.alevel.com.cn/user/interface/getUserInfoByID/",array_merge(['validate_code'=> $this->apiKey,'userid'=>$userid,'info_kind'=>$info_kind]),$info_arr);
+            //var_dump(array_merge(['validate_code'=> $this->apiKey,'userid'=>$userid,'info_kind'=>$info_kind],$info_arr));
+            return $this->postRequest("http://www.alevel.com.cn/user/interface/getUserInfoByID/",array_merge(['validate_code'=> $this->apiKey,'userid'=>$userid,'info_kind'=>$info_kind],$info_arr));
         }
         
     }

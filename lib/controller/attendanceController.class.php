@@ -15,17 +15,18 @@ class attendanceController extends Controller
 
     public function start()
     {
-        if(isset($_GET['year'])&&isset($_GET['momth'])){
+        if(!empty($_GET['year'])&&!empty($_GET['month'])){
             $year=$_GET['year'];
-            $month=$_GET['momth'];
+            $month=$_GET['month'];
         }else{
-            $year=date('yyyy',time());
-            $month=date('mm',time());
+            $year=date('Y',time());
+            $month=date('m',time());
         }
          $this->checkLoginAndRedirect();
          $this->attendanceArr = $this->model->getAttendance(array('year'=>$year,'month'=>$month));
-         var_dump($this->attendanceArr);
          cache::addCache('attendance',$this->attendanceArr['INFO_DICT']);
+         cache::addCacheArr(array('year'=>$year,'month'=>$month));
+         //var_dump($this->attendanceArr['INFO_DICT']['abs_records']);
          $this->view->showDedicatedPage('user_attendance');
     }
 }
