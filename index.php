@@ -19,7 +19,7 @@ $action = !empty($_GET["action"]) ? $_GET["action"] : "index";
  *      /calendar
  */
 
-$allowed = ["index", "login", "homework", "timetable", "exam", "calendar", "show", "functions", "feedback", "ajax", "register", "eca", "verify","rollcalling","news","post"];
+$allowed = ["index", "login", "homework","attendance", "timetable", "exam", "calendar", "show", "functions", "feedback", "ajax", "register", "eca", "verify","rollcalling","news","post"];
 
 //Gets the controller class files
 
