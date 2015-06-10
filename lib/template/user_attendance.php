@@ -31,7 +31,7 @@ get_sidebar("cms");
                             ?>
                                 <tr><th>总天数</th><td><?=$result['totalDays']?>天</td></tr>
                                 <tr><th>总缺勤天数</th><td><?=$result['totalAbsentdays']?>天</td></tr>
-                                <tr><th>占比</th><td><?=$result['totalRate']?></td></tr>
+                                <tr><th>缺勤率</th><td><?=$result['totalRate']?></td></tr>
                                 <tr><th><?=cache::getCache('year');?>年<?=cache::getCache('month');?>月共缺勤</th><td><?=isset($result['monthAbsentDays'])?$result['monthAbsentDays']:''?>次</td></tr>
                                 <tr><th><?=cache::getCache('year');?>年<?=cache::getCache('month');?>月占比</th><td><?=isset($result['monthAbsentRate'])?$result['monthAbsentRate']:''?></td></tr>
                             </table>
