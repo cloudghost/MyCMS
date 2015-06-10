@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?php get_title(); ?></title>
-    <meta name="description" content="SCIE MyCMS">
+    <meta name="description" content="SCIE MyCMS，深国交MyCMS">
     <meta name="keywords" content="SCIE,MyCMS,深国交,IT社,SCIEIT,CMS,校园信息系统">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
