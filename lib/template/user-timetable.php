@@ -51,7 +51,7 @@ get_sidebar("cms");
           <table class="am-table am-table-bordered am-table-striped am-table-compact am-text-sm">
             <thead>
               <tr>
-                <th class="table-author">时间\星期</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th>
+                <th class="table-author">Period\Day</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th>
               </tr>
           </thead>
           <tbody>
