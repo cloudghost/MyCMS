@@ -8,7 +8,10 @@ function get_header()
 {
     require_once "lib/template/header.php";
 }
-
+function get_sidebar_message()
+{
+    require_once "lib/template/sidebar_messages.php";
+}
 function get_footer($addOnArr = null)
 {
     global $controller;

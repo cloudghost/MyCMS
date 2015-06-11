@@ -54,7 +54,7 @@ get_sidebar("cms");
                     <th>日期</th>
                     <th>Period</th>
                     <th>科目</th>
-                    <th>详情</th>
+                    <th>性质</th>
                 </thread>
                 <?php foreach ($result['abs_records'] as $day) {
                     foreach($day['periods'] as $period => $class){?>
