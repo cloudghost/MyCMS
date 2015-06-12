@@ -12,7 +12,7 @@ get_sidebar("cms");
     </div>
     <div class="am-g">
       <div class="am-u-md-12 am-scrollable-horizontal am-show-sm-only"> <!-- am-show-md-up"> -->
-          <table class="am-table am-table-bordered am-table-striped am-table-compact am-text-sm">
+          <table class="am-table am-table-bordered am-table-compact am-text-sm">
             <thead>
               <tr>
                 <th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th>
@@ -29,7 +29,7 @@ get_sidebar("cms");
                         <?php for($i=1;$i<=10;++$i){?>
                             <tr>
                                 <?php for($a=1;$a<=5;++$a){?>
-                                <td><?php 
+                                <td class="<?=isset($timetable[$weekarr[$a]]['P'.$i])?'am-primary':'am-success'?>"><?php 
                                 $string= isset($timetable[$weekarr[$a]]['P'.$i])?$timetable[$weekarr[$a]]['P'.$i]:'&nbsp'; 
                                 if(isset($timetable[$weekarr[$a]]['P'.($i+1)])&&$string==$timetable[$weekarr[$a]]['P'.($i+1)]){
                                   preg_match("/[(]\S*[)]/", $timetable[$weekarr[$a]]['P'.($i+1)],$room);
@@ -44,7 +44,6 @@ get_sidebar("cms");
                         <?php } ?>
                     </tbody>
         </table>
-        <td class="am-hide-sm-only"><?=$timeperiod[$i];?></td>
         <span class="am-badge am-badge-success am-text-sm">你一周要上 <?=get_course_count($timetable);?> 节课</span>
       </div>
       <div class="am-u-md-12 am-scrollable-horizontal am-show-md-up"> <!-- am-show-md-up"> -->
@@ -72,8 +71,6 @@ get_sidebar("cms");
                         <?php } ?>
                     </tbody>
         </table>
-        <td class="am-hide-sm-only"><?=$timeperiod[$i];?></td>
-        <th class="table-author am-hide-sm-only">时间\星期</th>
         <span class="am-badge am-badge-success am-text-sm">你一周要上 <?=get_course_count($timetable);?> 节课</span>
       </div>
 
