@@ -1,4 +1,4 @@
-<?
+<?php
 	class editNewsController extends newsController{
 		function __construct(){
 			parent::__construct();

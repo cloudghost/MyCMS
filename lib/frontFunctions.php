@@ -8,7 +8,10 @@ function get_header()
 {
     require_once "lib/template/header.php";
 }
-
+function get_sidebar_message()
+{
+    require_once "lib/template/sidebar_messages.php";
+}
 function get_footer($addOnArr = null)
 {
     global $controller;
@@ -160,12 +163,15 @@ function get_course_name_manual($day, $lesson)
     }
 }
 
-function get_course_count()
+function get_course_count($course_arr)
 {
-    global $controller;
-    if (!empty($controller->view->courseNumber)) {
-        echo $controller->view->courseNumber;
+    $count=0;
+    foreach($course_arr as $day){
+        foreach($day as $course){
+            $count++;
+        } 
     }
+    return $count;
 }
 
 function get_course_name_by_day()
@@ -452,4 +458,59 @@ function get_attended($att)
 		}
 	}
 	return $count;
+}
+function pregModifyClass($string){
+    $string = preg_replace("/[-].*[(]/", '</br>(', $string);
+    $CLASS_LIST=array(
+        'chinese'=>'语文',
+        'chemistry'=>'化学',
+        'physics'=>'物理',
+        'computer science'=>'电脑',
+        'computing'=>'电脑',
+        'pe'=>'体育',
+        'business studies'=>'商学',
+        'pshe'=>'PSHE',
+        'mathematics'=>'数学',
+        'history'=>'历史',
+        'spanish'=>'西语',
+        'biology'=>'生物',
+        'japanese'=>'日语',
+        'sociology'=>'社会',
+        'psychology'=>'心理',
+        'geology'=>'地理',
+        'english'=>'英语'
+        );
+    preg_match("/^[a-zA-Z\s]*/", $string,$str);
+    $str=$str[0];
+    if(strlen($str)>0){
+        $string=str_replace($str, $CLASS_LIST[strtolower($str)], $string);
+    }
+    return $string;
+}
+function pregReplaceClass($string){
+    $CLASS_LIST=array(
+        'chinese'=>'语文',
+        'chemistry'=>'化学',
+        'physics'=>'物理',
+        'computer science'=>'电脑',
+        'computing'=>'电脑',
+        'pe'=>'体育',
+        'business studies'=>'商学',
+        'pshe'=>'PSHE',
+        'mathematics'=>'数学',
+        'history'=>'历史',
+        'spanish'=>'西语',
+        'biology'=>'生物',
+        'japanese'=>'日语',
+        'sociology'=>'社会',
+        'psychology'=>'心理',
+        'geology'=>'地理',
+        'english'=>'英语'
+        );
+    preg_match("/^[a-zA-Z\s]*/", $string,$str);
+    $str=$str[0];
+    if(strlen($str)>0){
+        $string=str_replace($str, $CLASS_LIST[strtolower($str)], $str);
+    }
+    return $string;
 }

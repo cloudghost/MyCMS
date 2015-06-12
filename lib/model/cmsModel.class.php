@@ -102,12 +102,37 @@ class cmsModel extends Model
         }
     }
 
+    public function getAttendance($arr)
+    {
+        require_once 'lib/model/cmsNewModel.class.php';
+        $modeltmp = new cmsNewModel();
+        $sid = $_SESSION["user"]["sidRaw"];
+        $password = $_SESSION["user"]["password"];
+        //$result = file_get_contents("http://www.alevel.com.cn/user/interface/cinfo/$sid/$password/");
+        $infoArr=$modeltmp->getInfo($sid,'ATTENDANCE',$arr);
+        //var_dump( json_decode($result, true));
+        //var_dump($infoArr);
+        if ($this->checkData($infoArr))
+        {
+            return $infoArr;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+ 
+
     public function getTimetable()
     {
-        $sid = $_SESSION["user"]["sid"];
+        require_once 'lib/model/cmsNewModel.class.php';
+        $modeltmp = new cmsNewModel();
+        $sid = $_SESSION["user"]["sidRaw"];
         $password = $_SESSION["user"]["password"];
-        $result = file_get_contents("http://www.alevel.com.cn/user/interface/cinfo/$sid/$password/");
-        $infoArr = json_decode($result, true);
+        //$result = file_get_contents("http://www.alevel.com.cn/user/interface/cinfo/$sid/$password/");
+        $infoArr=$modeltmp->getInfo($sid,'TIMETABLE');
+        //var_dump( json_decode($result, true));
+        //var_dump($infoArr);
         if ($this->checkData($infoArr))
         {
             return $infoArr;

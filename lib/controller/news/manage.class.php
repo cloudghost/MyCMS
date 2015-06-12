@@ -1,4 +1,4 @@
-<?
+<?php
 	class manageNewsController extends newsController{
 		function __construct(){
 			parent::__construct();

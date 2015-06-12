@@ -34,7 +34,7 @@ class indexController extends Controller
             $this->homeworkArr = $this->model->getHomework();
             $this->view->assembleNewHwList($this->homeworkArr);
             $this->view->assembleHandInHwList($this->homeworkArr);
-            $this->view->assembleTimetable($this->model->weekDay, $this->model->weekDayTmw, $this->timetableArr);
+            cache::addCache('timetable',$this->timetableArr['INFO_DICT']);
             $this->view->showUserIndex();
 
 

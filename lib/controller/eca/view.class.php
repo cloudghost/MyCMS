@@ -39,10 +39,9 @@ class viewEcaController extends ecaController{
 
     private function getEcaInfo(){
 		$sid=database::sanitize($_SESSION['user']['sidRaw']);
-        if($ecaInfo = database::queryAndArray("SELECT eca.*, eca_members.* FROM eca INNER JOIN eca_members on eca.eca_id=eca_members.eca_id WHERE eca.eca_id = '{$this->ecaId}' and eca_members.user_sid='{$sid}'","assoc")[0]){
-			
+        if($ecaInfo = database::queryAndOne("SELECT eca.*, eca_members.* FROM eca INNER JOIN eca_members on eca.eca_id=eca_members.eca_id WHERE eca.eca_id = '{$this->ecaId}' and eca_members.user_sid='{$sid}'","assoc")){
 		}else{
-			$ecaInfo = database::queryAndArray("SELECT * FROM eca WHERE eca_id = '{$this->ecaId}'","assoc")[0];
+			$ecaInfo = database::queryAndOne("SELECT * FROM eca WHERE eca_id = '{$this->ecaId}'","assoc");
 		}
 		if($ecaContact=database::queryAndOne("SELECT * FROM eca_info WHERE eca_id='{$this->ecaId}'","ASSOC")){
 		    $this->ecaInfo = array_merge($ecaInfo,$ecaContact);	

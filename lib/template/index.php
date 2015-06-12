@@ -214,6 +214,7 @@ get_header_raw(); ?>
                 <li>专门搞HTML，CSS 和 javascript的前端</li>
                 <li>网页配色和设计的PS高手</li>
                 <li>后台代码和数据库维护的程序猿</li>
+                <li>即使你是什么也不会的菜鸟，如果你有诚心学习，请联系我们。</li>
             </ul>
         </div>
     </div>
@@ -221,7 +222,7 @@ get_header_raw(); ?>
 
 
 <footer class="footer">
-    <p class="am-padding-left">由 IT Club 制作维护 系统版本： 1.0</p>
+    <p class="am-padding-left">由 IT Club 制作维护 系统版本： 1.2Beta</p>
 </footer>
 
 <!--[if lt IE 9]>
